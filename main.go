@@ -23,7 +23,7 @@ func main() {
 		Addr:    ":9090",
 		Handler: handlers.AuthHandler(router),
 	}
-	fmt.Println("Staring Product Catalog server on Port 9090")
+	fmt.Println("Staring Company Microservice on Port 9090")
 	// Start Server on defined port/host.
 	isAzureDeployment := os.Getenv("AZURE_DEPLOYMENT")
 	if isAzureDeployment == "TRUE" {

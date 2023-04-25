@@ -11,7 +11,7 @@ import (
 	"os"
 
 	// internal
-	"github.com/HelloWorld/goProductAPI/entity"
+	"github.com/tscj3490/xm_microservice/entity"
 	// third party
 	"github.com/gorilla/mux"
 )

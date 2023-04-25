@@ -1,4 +1,4 @@
-module github.com/HelloWorld/goProductAPI
+module github.com/tscj3490/xm_microservice
 
 go 1.16
 
