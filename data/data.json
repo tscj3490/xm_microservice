@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1",
+        "name": "Sazan",
+        "description": "Sazan is a company for IT Training, Placement & Consulting.",
+        "employees": 36,
+        "registered": true,
+        "type": "Corporations"
+    },
+    {
+        "id": "2",
+        "name": "KeenLogic",
+        "description": "KeenLogic is a company to support UI/UX of software companies.",
+        "employees": 1200,
+        "registered": false,
+        "type": "NonProfit"
+    },
+    {
+        "id": "3",
+        "name": "Pathway",
+        "description": "Pathway is a health tech company working on helping clinicians and patients access important medical information more effectively throughout the care journey.",
+        "employees": 150,
+        "registered": true,
+        "type": "Sole Proprietorship"
+    },
+    {
+        "id": "4",
+        "name": "Techedin",
+        "description": "Techedin is a global IT Services company complementing the efforts of technology-driven enterprises in developing cutting-edge solutions for humans.",
+        "employees": 78,
+        "registered": true,
+        "type": "Cooperative"
+    }
+]
