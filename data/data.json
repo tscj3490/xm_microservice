@@ -1,13 +1,5 @@
 [
     {
-        "id": "1",
-        "name": "Sazan",
-        "description": "Sazan is a company for IT Training, Placement & Consulting.",
-        "employees": 36,
-        "registered": true,
-        "type": "Corporations"
-    },
-    {
         "id": "2",
         "name": "KeenLogic",
         "description": "KeenLogic is a company to support UI/UX of software companies.",
@@ -30,5 +22,13 @@
         "employees": 78,
         "registered": true,
         "type": "Cooperative"
+    },
+    {
+        "id": "1",
+        "name": "Sazan",
+        "description": "Sazan is a company for IT Training, Placement and Consulting.",
+        "employees": 56,
+        "registered": false,
+        "type": "Corporations"
     }
 ]

@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"os"
 
 	"github.com/gorilla/mux"
 	"github.com/tscj3490/xm_microservice/handlers"
@@ -24,18 +23,23 @@ func main() {
 		Handler: handlers.AuthHandler(router),
 	}
 	fmt.Println("Staring Company Microservice on Port 9090")
-	// Start Server on defined port/host.
-	isAzureDeployment := os.Getenv("AZURE_DEPLOYMENT")
-	if isAzureDeployment == "TRUE" {
-		fmt.Println("Running on Azure")
-		err := server.ListenAndServe()
-		if err != nil {
-			fmt.Println("Failed to start HTTP Server")
-		}
-	} else {
-		err := server.ListenAndServeTLS("server.crt", "server.key")
-		if err != nil {
-			fmt.Printf("Failed to start HTTPS server: %s", err.Error())
-		}
+	err := server.ListenAndServe()
+	if err != nil {
+		fmt.Println("Failed to start HTTP Server")
 	}
+
+	// Start Server on defined port/host.
+	// isAzureDeployment := os.Getenv("AZURE_DEPLOYMENT")
+	// if isAzureDeployment == "TRUE" {
+	// 	fmt.Println("Running on Azure")
+	// 	err := server.ListenAndServe()
+	// 	if err != nil {
+	// 		fmt.Println("Failed to start HTTP Server")
+	// 	}
+	// } else {
+	// 	err := server.ListenAndServeTLS("server.crt", "server.key")
+	// 	if err != nil {
+	// 		fmt.Printf("Failed to start HTTPS server: %s", err.Error())
+	// 	}
+	// }
 }
