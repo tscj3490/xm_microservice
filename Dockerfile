@@ -1,16 +1,17 @@
-FROM golang:1.16.5 as builder
+FROM golang:1.17.6 as builder
 
-WORKDIR /go-microservice/
+WORKDIR /xm_microservice/
 
 COPY . .
 
-RUN CGO_ENABLED=0 go build -o microservice /go-microservice/main.go
+RUN go get github.com/joho/godotenv && \
+    CGO_ENABLED=0 go build -o microservice /xm_microservice/main.go
 
 FROM alpine:latest
 
-WORKDIR /go-microservice
+WORKDIR /xm_microservice
 
-COPY --from=builder /go-microservice/ /go-microservice/
+COPY --from=builder /xm_microservice/ /xm_microservice/
 
 EXPOSE 9090
 

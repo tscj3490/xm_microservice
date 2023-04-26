@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 	"github.com/tscj3490/xm_microservice/handlers"
 )
 
@@ -22,8 +24,14 @@ func main() {
 		Addr:    ":9090",
 		Handler: handlers.AuthHandler(router),
 	}
+	// Load environment variables from the .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	fmt.Println("Staring Company Microservice on Port 9090")
-	err := server.ListenAndServe()
+	err = server.ListenAndServe()
 	if err != nil {
 		fmt.Println("Failed to start HTTP Server")
 	}

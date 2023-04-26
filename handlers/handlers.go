@@ -20,6 +20,7 @@ import (
 // GetCompanyHandler is used to get a company
 func GetCompanyHandler() http.HandlerFunc {
 	return func(rw http.ResponseWriter, r *http.Request) {
+		fmt.Println("aaa===")
 		// Read company ID
 		id := mux.Vars(r)["id"]
 		company, err := entity.GetCompany(id)
@@ -136,15 +137,11 @@ func UpdateCompanyHandler() http.HandlerFunc {
 }
 
 func AuthHandler(h http.Handler) http.HandlerFunc {
-	fmt.Println("---===")
 	return func(rw http.ResponseWriter, r *http.Request) {
-		fmt.Println("0===")
 		user, pass, ok := r.BasicAuth()
-		fmt.Println("1===", user, pass)
 		if ok {
 			username := sha256.Sum256([]byte(os.Getenv("USER_NAME")))
 			password := sha256.Sum256([]byte(os.Getenv("USER_PASS")))
-			fmt.Println("2===", os.Getenv("USER_NAME"), os.Getenv("USER_PASS"))
 			userHash := sha256.Sum256([]byte(user))
 			passHash := sha256.Sum256([]byte(pass))
 			validUser := subtle.ConstantTimeCompare(userHash[:], username[:]) == 1
