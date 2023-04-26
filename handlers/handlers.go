@@ -6,7 +6,6 @@ import (
 	"crypto/subtle"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -20,7 +19,6 @@ import (
 // GetCompanyHandler is used to get a company
 func GetCompanyHandler() http.HandlerFunc {
 	return func(rw http.ResponseWriter, r *http.Request) {
-		fmt.Println("aaa===")
 		// Read company ID
 		id := mux.Vars(r)["id"]
 		company, err := entity.GetCompany(id)
