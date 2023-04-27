@@ -6,6 +6,7 @@ import (
 	"crypto/subtle"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -37,6 +38,7 @@ func GetCompanyHandler() http.HandlerFunc {
 			}
 			return
 		}
+
 		// Write body with found company
 		rw.Header().Add("content-type", "application/json")
 		rw.WriteHeader(http.StatusOK)
@@ -62,7 +64,9 @@ func CreateCompanyHandler() http.HandlerFunc {
 			rw.Write([]byte("Invalid Data Format"))
 			return
 		}
+
 		err = entity.AddCompany(company)
+		fmt.Println("222333---", err)
 		if err != nil {
 			rw.WriteHeader(http.StatusInternalServerError)
 			return

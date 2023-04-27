@@ -3,8 +3,10 @@ package entity
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 )
 
 type CompanyType string
@@ -29,16 +31,31 @@ type Company struct {
 // ErrNoCompany is used if no company found
 var ErrNoCompany = errors.New("no company found")
 
+func GetDataPath() string {
+	// get the absolute path to the project's root directory
+	projectDir, err := filepath.Abs(filepath.Dir("."))
+	if err != nil {
+		fmt.Println(err)
+		return ""
+	}
+
+	// construct the path to the data.json file
+	dataFilePath := filepath.Join(projectDir, "data", "data.json")
+
+	return dataFilePath
+}
+
 // GetCompany takes id as input and returns the corresponding company, else it returns ErrNoCompany error.
 func GetCompany(id string) (Company, error) {
 	// Read JSON file
-	data, err := ioutil.ReadFile("./data/data.json")
+	data, err := ioutil.ReadFile(GetDataPath())
 	if err != nil {
 		return Company{}, err
 	}
 	// read companies
 	var companies []Company
 	err = json.Unmarshal(data, &companies)
+
 	if err != nil {
 		return Company{}, err
 	}
@@ -56,7 +73,7 @@ func GetCompany(id string) (Company, error) {
 // DeleteCompany takes id as input and deletes the corresponding company, else it returns ErrNoCompany error.
 func DeleteCompany(id string) error {
 	// Read JSON file
-	data, err := ioutil.ReadFile("./data/data.json")
+	data, err := ioutil.ReadFile(GetDataPath())
 	if err != nil {
 		return err
 	}
@@ -90,7 +107,9 @@ func DeleteCompany(id string) error {
 func AddCompany(company Company) error {
 	// Load existing companies and append the data to company list
 	var companies []Company
-	data, err := ioutil.ReadFile("./data/data.json")
+	fmt.Println("111--", GetDataPath())
+	data, err := ioutil.ReadFile(GetDataPath())
+	fmt.Println("333--", data, err)
 	if err != nil {
 		return err
 	}

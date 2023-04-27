@@ -37,7 +37,6 @@ func main() {
 
 	// Create new Router
 	router := mux.NewRouter()
-	// route properly to respective handlers
 	router.Handle("/companies", handlers.CreateCompanyHandler()).Methods("POST")
 	router.Handle("/companies/{id}", handlers.GetCompanyHandler()).Methods("GET")
 	router.Handle("/companies/{id}", handlers.DeleteCompanyHandler()).Methods("DELETE")
