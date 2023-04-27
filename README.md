@@ -18,7 +18,7 @@ To build a docker image, use the below command to create an image for this micro
 docker build -t microservice .
 ```
 Below is a screenshot showing that the docker works correctly.
-<img src="https://drive.google.com/file/d/13G0Cd9haxrnCczCLJykg-_jgn17UIsKF/view?usp=share_link"  width="600" height="400" data-load="full"/>
+<img src="https://i.ibb.co/4MhLrZw/Screenshot-2023-04-27-at-13-08-34.png"  width="600" height="400" data-load="full"/>
 
 To check if we have our image ready in our local repository, run the below command.
 ``` bash
@@ -40,10 +40,10 @@ Note:
 
 - You can download the postman collection file <a href="https://drive.google.com/file/d/1HljPJf279WtxrNRijgsgC-9sUEPhoVVT/view?usp=sharing">here</a>.
  Below is a screenshot showing that the api for getting company info works correctly.
- <img src="https://drive.google.com/file/d/1088vYi6pKyZm_q0Oy4QNUhBoTmTiwB2k/view?usp=share_link" width="600" height="400" data-load="full"/>
+ <img src="https://i.ibb.co/qp5ywF5/Screenshot-2023-04-27-at-12-49-35.png" width="600" height="400" data-load="full"/>
 
 - For JWT testing, In the authorization tab of the postman, choose the Basic Auth and fill in the username and password with the one’s you have configured in .env file.
- <img src="https://drive.google.com/file/d/13jvr1JU863lvnh4NWsnzCspkDAk0cOwR/view?usp=share_link" width="600" height="400" data-load="full"/>
+ <img src="https://i.ibb.co/kBvTfX2/Screenshot-at-Apr-27-12-56-33.png" width="600" height="400" data-load="full"/>
 
 - For tests, you can confirm in handlers/handlers_test.go. (For time reason, I only added test functions for two endpoints of getCompany and createCompany. For other endpoints, the same principle can be used.)
 - About Kafka, I need more time to complete the implementation.
